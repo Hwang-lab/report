@@ -1,5 +1,5 @@
-#report 2-1
-##안동대학교 황근원
+# report 2-1
+## 안동대학교 황근원
 
 ``` 
 void setup() {
@@ -25,6 +25,6 @@ void keyPressed(){
   a = key-'0';
 }
 ```
-###comment
+### comment
 *처음 하는 건데 생각보다 잘 돼서 기분이 좋습니다!
 *그래픽스 화이팅입니다~~!!
