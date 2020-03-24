@@ -1,0 +1,32 @@
+# Report 2-2
+## 안동대학교 황근원
+
+
+```
+PFont f;
+int h;
+int a=1;
+int dir=1;
+
+void setup(){
+  size(700,300);
+  textSize(50);
+  f = createFont("굴림",50);
+  textFont(f);
+}
+
+void draw() {
+  background(0,255,255);
+  fill(0);
+  text("안동대 컴공 사랑합니다♡", 70, h=h+a); 
+  if(h>300) h=0;
+  if(h>width) dir=-1;
+  if(h<0) dir=1;
+  h = h+dir;
+}
+
+void keyPressed(){
+  a = key-'0';
+}
+
+```
