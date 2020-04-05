@@ -10,8 +10,6 @@ void setup() {
   img = loadImage("p.jpg");
   //p는 숨은 그림찾기 이미지입니다.
   img.loadPixels();
-  // Only need to load the pixels[] array once, because we're only
-  // manipulating pixels[] inside draw(), not drawing shapes.
   loadPixels();
   
 }
@@ -49,9 +47,8 @@ void draw() {
 ```
 # comment
 * 1. 프로세싱 Examples 중에 하나를 선택하시오.
-*
+** 저는 이미지 프로세싱에 brightness를 선택했습니다.
 * 2. 프로그램에 대해서 설명을 하시오.
-sd
 * 3. 내가 변형할 내용에 대해서 적으시오.
 * 4. 변형된 코드의 결과에 대해서 설명하시오.
 * 5. 과제 작성소감을 적으시오.
