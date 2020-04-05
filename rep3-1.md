@@ -1,3 +1,6 @@
+# 17학번 황근원
+
+```
 PImage img;
 
 void setup() {
@@ -42,3 +45,4 @@ void draw() {
   }
   updatePixels();
 }
+```
