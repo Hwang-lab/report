@@ -1,3 +1,4 @@
+# report 8-1
 # texturecube
 
 ```
@@ -74,3 +75,4 @@ void mouseDragged() {
 
 ```
 ## comment
+# 제가 좋아하는 귀요미 물개를 넣어 봤습니다. 너무 귀엽습니다!! 
