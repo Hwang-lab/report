@@ -100,7 +100,7 @@ void mouseDragged() {
   roty += (mouseX-pmouseX) * rate;
 }
 ```
-#카메라 예
+# 카메라 예
 ```
 void setup() {
   size(640, 360, P3D);
