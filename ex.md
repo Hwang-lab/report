@@ -1,138 +1,51 @@
-# 삼각뿔 예제.
+# 선 밑에서 위로
 ```
-size(640, 500, P3D);
-background(0);
-
-translate(width/2, height/2, 0);
-stroke(255);
-rotateX(PI/2);
-rotateZ(-PI/6);
-noFill();
-
-beginShape();
-vertex(-100, -100, -100);
-vertex( 100, -100, -100);
-vertex(   0,    0,  100);
-
-vertex( 100, -100, -100);
-vertex( 100,  100, -100);
-vertex(   0,    0,  100);
-
-vertex( 100, 100, -100);
-vertex(-100, 100, -100);
-vertex(   0,   0,  100);
-
-vertex(-100,  100, -100);
-vertex(-100, -100, -100);
-vertex(   0,    0,  100);
-endShape();
-```
-# 이미지 박스 예제.
-```
-PImage tex;
-float rotx = PI/4;
-float roty = PI/4;
+int y = 100;
 
 void setup() {
-  size(640, 360, P3D);
-  tex = loadImage("berlin-1.jpg");
-  textureMode(NORMAL);
-  fill(255);
-  stroke(color(44,48,32));
+  size(640, 360);  
+  stroke(255);    
+  frameRate(30);
 }
 
-void draw() {
-  background(0);
-  noStroke();
-  translate(width/2.0, height/2.0, -100);
-  rotateX(rotx);
-  rotateY(roty);
-  scale(90);
-  TexturedCube(tex);
+
+void draw() { 
+  background(0);  
+  y = y - 1; 
+  if (y < 0) { 
+    y = height; 
+  } 
+  line(0, y, width, y);  
+} 
+```
+# 초록 펜 만들기
+```
+void setup(){
+  size(500,500);
+  stroke(0,255,0);
+  strokeWeight(16);
 }
-
-void TexturedCube(PImage tex) {
-  beginShape(QUADS);
-  texture(tex);
-  
-  // +Z "front" face
-  vertex(-1, -1,  1, 0, 0);
-  vertex( 1, -1,  1, 1, 0);
-  vertex( 1,  1,  1, 1, 1);
-  vertex(-1,  1,  1, 0, 1);
-
-  // -Z "back" face
-  vertex( 1, -1, -1, 0, 0);
-  vertex(-1, -1, -1, 1, 0);
-  vertex(-1,  1, -1, 1, 1);
-  vertex( 1,  1, -1, 0, 1);
-
-  // +Y "bottom" face
-  vertex(-1,  1,  1, 0, 0);
-  vertex( 1,  1,  1, 1, 0);
-  vertex( 1,  1, -1, 1, 1);
-  vertex(-1,  1, -1, 0, 1);
-
-  // -Y "top" face
-  vertex(-1, -1, -1, 0, 0);
-  vertex( 1, -1, -1, 1, 0);
-  vertex( 1, -1,  1, 1, 1);
-  vertex(-1, -1,  1, 0, 1);
-
-  // +X "right" face
-  vertex( 1, -1,  1, 0, 0);
-  vertex( 1, -1, -1, 1, 0);
-  vertex( 1,  1, -1, 1, 1);
-  vertex( 1,  1,  1, 0, 1);
-
-  // -X "left" face
-  vertex(-1, -1, -1, 0, 0);
-  vertex(-1, -1,  1, 1, 0);
-  vertex(-1,  1,  1, 1, 1);
-  vertex(-1,  1, -1, 0, 1);
-
-  endShape();
-}
-
-void mouseDragged() {
-  float rate = 0.01;
-  rotx += (pmouseY-mouseY) * rate;
-  roty += (mouseX-pmouseX) * rate;
+void draw(){
+  if(mousePressed)
+      line(pmouseX,pmouseY,mouseX,mouseY);  
 }
 ```
-# 카메라 예
+# 영상 불러와서 회전시키기
 ```
-void setup() {
-  size(640, 360, P3D);
+PImage img;
+void setup(){
+size(500,500);
+imageMode(CENTER);
+img = loadImage("https://i.pinimg.com/originals/6b/5a/8c/6b5a8cc63ce660cd4dd0bc7752f31a98.png");
 }
-
-void draw() {
-  background(0);
-  camera(mouseX, height/2, (height/2) / tan(PI/6), width/2, height/2, 0, 0, 1, 0);
-  translate(width/2, height/2, -100);
-  stroke(255);
-  noFill();
-  box(200);
+float f;
+void draw(){
+translate(mouseX, mouseY);
+rotate(f); f+=0.1;
+image(img,0,0, img.width>>2,
+img.height>>2);
 }
 ```
-# 픽셀 색칠
+#
 ```
-size(100,100);
-color pink = color(255, 102, 204);
-loadPixels();
-for (int i = 0; i < 5000; i++) {  // 반틈.
-  pixels[i] = pink;
-}
-updatePixels();
-```
-```
-color r=color(255,0,0);
-color g=color(0,255,0);
-color b=color(0,0,255);
-loadPixels();
-int sz=width*height;
-for(int i=0;   i<sz/4;  i++) pixels[i]=r;
-for(int i=sz/4;i<sz/2;  i++) pixels[i]=g;
-for(int i=sz/2;i<sz*3/4;i++) pixels[i]=b;
-updatePixels();
-```
+``` 
