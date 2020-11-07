@@ -1,2 +1,1 @@
-# Processing
-Processing for Graphics
+# 과제 제출용
